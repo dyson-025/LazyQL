@@ -28,7 +28,7 @@ It supports **SQLite and PostgreSQL**, allowing users to connect a database, aut
 
 # 🔗 Live Demo
 
-🌐 **Frontend:** `YOUR_FRONTEND_URL`
+🌐 **Frontend:** https://lazy-ql.vercel.app
 
 🔧 **Backend API:** https://lazyql.onrender.com
 

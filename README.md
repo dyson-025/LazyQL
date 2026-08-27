@@ -38,36 +38,22 @@ It supports **SQLite and PostgreSQL**, allowing users to connect a database, aut
 
 # 🎥 Product Tour
 
-<!-- Add your product demo GIFs here -->
-
-<table width="100%">
-<tr>
-<td align="center">
-
-<h3>🔌 Database Connection</h3>
-
-<img src="assets/database-connection.gif" alt="Database Connection Demo" width="90%">
-
-</td>
-</tr>
-</table>
-
 <table width="100%">
 <tr>
 
 <td width="50%" align="center">
 
-<h3>🤖 AI SQL Generation</h3>
+<h3>🌞 Light Mode</h3>
 
-<img src="assets/ai-generation.gif" alt="AI SQL Generation Demo" width="95%">
+<img src="assets/learning-workflow-demo-ligtmode.gif" alt="LazyQL Learning Workflow - Light Mode" width="95%">
 
 </td>
 
 <td width="50%" align="center">
 
-<h3>📊 Query Results</h3>
+<h3>🌙 Dark Mode</h3>
 
-<img src="assets/query-results.gif" alt="Query Results Demo" width="95%">
+<img src="assets/learning-workflow-demo-darkmode.gif" alt="LazyQL Learning Workflow - Dark Mode" width="95%">
 
 </td>
 
@@ -305,25 +291,27 @@ The current MVP intentionally keeps database interaction read-only.
 
 # 🖼️ Application Preview
 
+## 🏠 Home
+
+| Dark Mode | Light Mode |
+|-----------|------------|
+| ![](assets/home-dark.png) | ![](assets/home-light.png) |
+
+---
+
 ## 🔌 Database Connection
 
-| SQLite | PostgreSQL |
-|--------|------------|
-| ![](assets/screenshots/sqlite.png) | ![](assets/screenshots/postgresql.png) |
+| Dark Mode | Light Mode |
+|-----------|------------|
+| ![](assets/data-dark.png) | ![](assets/data-light.png) |
 
 ---
 
 ## 🤖 AI SQL Generation
 
-| Natural Language Question | Generated SQL |
-|----------------------------|---------------|
-| ![](assets/screenshots/chat.png) | ![](assets/screenshots/generated-sql.png) |
-
----
-
-## 📊 Query Results
-
-![](assets/screenshots/query-results.png)
+| Dark Mode | Light Mode |
+|-----------|------------|
+| ![](assets/ai-dark.png) | ![](assets/ai-light.png) |
 
 ---
 
@@ -533,19 +521,52 @@ Example response:
 ```text
 LazyQL
 │
+├── assets
+│   ├── ai-dark.png
+│   ├── ai-light.png
+│   ├── data-dark.png
+│   ├── data-light.png
+│   ├── home-dark.png
+│   ├── home-light.png
+│   ├── learning-workflow-demo-darkmode.gif
+│   └── learning-workflow-demo-lightmode.gif
+│
 ├── database
 │   └── samples
 │       └── company.db
 │
 ├── frontend
 │   └── lazyfql
+│       ├── public
 │       ├── src
 │       │   ├── api
+│       │   ├── assets
 │       │   ├── components
-│       │   ├── context
-│       │   ├── hooks
-│       │   └── ...
-│       └── ...
+│       │   │   ├── chat
+│       │   │   ├── common
+│       │   │   ├── connection
+│       │   │   ├── context
+│       │   │   ├── hooks
+│       │   │   ├── modals
+│       │   │   ├── results
+│       │   │   ├── schema
+│       │   │   └── sql
+│       │   ├── data
+│       │   ├── ConnectionPage.jsx
+│       │   ├── HomePage.jsx
+│       │   ├── Workspace.jsx
+│       │   ├── App.css
+│       │   ├── App.jsx
+│       │   ├── index.css
+│       │   └── main.jsx
+│       ├── .env.example
+│       ├── .gitignore
+│       ├── README.md
+│       ├── eslint.config.js
+│       ├── index.html
+│       ├── package-lock.json
+│       ├── package.json
+│       └── vite.config.js
 │
 ├── scripts
 │   └── init_demo_db.py
@@ -556,10 +577,8 @@ LazyQL
 │   │   │   ├── gemini.py
 │   │   │   ├── mock.py
 │   │   │   └── service.py
-│   │   │
 │   │   ├── api
 │   │   │   └── routes
-│   │   │
 │   │   ├── database
 │   │   │   ├── base.py
 │   │   │   ├── connection.py
@@ -567,14 +586,12 @@ LazyQL
 │   │   │   ├── postgres.py
 │   │   │   ├── schema.py
 │   │   │   └── session_manager.py
-│   │   │
 │   │   ├── models
 │   │   └── main.py
-│   │
 │   ├── tests
 │   │   ├── api
 │   │   └── database
-│   │
+│   ├── .env.example
 │   ├── requirements.txt
 │   └── ...
 │
@@ -582,8 +599,6 @@ LazyQL
 ├── README.md
 └── LICENSE
 ```
-
----
 
 # 🚀 Getting Started
 
@@ -605,7 +620,7 @@ Make sure you have:
 # 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LazyQL.git
+git clone https://github.com/dyson-025/LazyQL.git
 
 cd LazyQL
 ```

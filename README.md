@@ -45,7 +45,7 @@ It supports **SQLite and PostgreSQL**, allowing users to connect a database, aut
 
 <h3>🌞 Light Mode</h3>
 
-<img src="assets/learning-workflow-demo-ligtmode.gif" alt="LazyQL Learning Workflow - Light Mode" width="95%">
+<img src="assets/workflow-light.gif" alt="LazyQL Learning Workflow - Light Mode" width="95%">
 
 </td>
 
@@ -53,7 +53,7 @@ It supports **SQLite and PostgreSQL**, allowing users to connect a database, aut
 
 <h3>🌙 Dark Mode</h3>
 
-<img src="assets/learning-workflow-demo-darkmode.gif" alt="LazyQL Learning Workflow - Dark Mode" width="95%">
+<img src="assets/workflow-dark.gif" alt="LazyQL Learning Workflow - Dark Mode" width="95%">
 
 </td>
 

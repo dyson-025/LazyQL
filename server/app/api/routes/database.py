@@ -1,3 +1,5 @@
+from app.database.safety import validate_readonly_sql
+from app.database.exceptions import UnsafeQueryError
 import shutil
 import tempfile
 from pathlib import Path
@@ -56,11 +58,18 @@ def execute_query(request: QueryRequest):
         db = session_manager.get_session(
             request.session_id
         )
-
     except KeyError as exc:
         raise HTTPException(
             status_code=404,
             detail="Database session not found",
+        ) from exc
+
+    try:
+        validate_readonly_sql(request.sql)
+    except UnsafeQueryError as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
         ) from exc
 
     result = db.execute_query(request.sql)

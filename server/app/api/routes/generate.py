@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 
 from app.ai.gemini import GeminiService
+from app.ai.service import AIService
 
 from app.database.session_manager import session_manager
 from app.models.generate import (
@@ -10,17 +11,22 @@ from app.models.generate import (
 
 router = APIRouter(prefix="/generate", tags=["AI"])
 
-ai_service = GeminiService()
+_default_ai_service = GeminiService()
+
+
+def get_ai_service() -> AIService:
+    return _default_ai_service
 
 
 @router.post("", response_model=GenerateResponse)
-def generate_sql(request: GenerateRequest):
-
+def generate_sql(
+    request: GenerateRequest,
+    ai_service: AIService = Depends(get_ai_service),
+):
     try:
         db = session_manager.get_session(
             request.session_id
         )
-
     except KeyError as exc:
         raise HTTPException(
             status_code=404,

@@ -3,7 +3,10 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 from app.main import app
+from app.api.routes.generate import get_ai_service
+from app.ai.mock import MockAIService
 
+app.dependency_overrides[get_ai_service] = lambda: MockAIService()
 
 client = TestClient(app)
 
@@ -13,7 +16,6 @@ DATABASE_PATH = (
     / "samples"
     / "company.db"
 )
-
 
 def test_generate_sql():
     with DATABASE_PATH.open("rb") as file:

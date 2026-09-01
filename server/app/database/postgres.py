@@ -4,6 +4,8 @@ from .base import DatabaseAdapter
 from .exceptions import DatabaseConnectionError
 from .schema import extract_schema
 
+from sqlalchemy.engine import make_url
+
 
 class PostgreSQLAdapter(DatabaseAdapter):
 
@@ -42,12 +44,16 @@ class PostgreSQLAdapter(DatabaseAdapter):
 
         except Exception as exc:
             self.engine = None
-
+        
+            safe_url = make_url(self.connection_url).render_as_string(
+                hide_password=True
+            )
+        
             print(
                 "POSTGRES ERROR:",
-                repr(exc),
+                f"Failed to connect to {safe_url}",
             )
-
+        
             raise DatabaseConnectionError(
                 "Unable to connect to PostgreSQL database"
             ) from exc
